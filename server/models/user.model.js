@@ -218,7 +218,7 @@ UserSchema.statics = {
 
       const query = {
         email: username
-      };
+      }; 
 
       const selectField = "firstName lastName email password resetToken permissions profilePic roleData  socials tablePreference termsConditionsUpdatedAt unsubscribeEmails unsubscribeKey unsubscribeSms updatedAt createdAt deleted"
       const mongooseQuery = self.findOne(query).select(selectField);
