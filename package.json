@@ -4,7 +4,7 @@
   "description": "management api v1",
   "main": "server.js",
   "scripts": {
-    "start": "npm run start:local",
+    "start": "npm run start:live",
     "start:local": "cross-env NODE_ENV=default nodemon server.js",
     "start:live": "cross-env NODE_ENV=live node server.js --live",
     "test": "jest --coverage",
