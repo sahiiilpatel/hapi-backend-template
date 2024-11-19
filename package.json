@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run start:local",
     "start:local": "cross-env NODE_ENV=default nodemon server.js",
-    "start:vercel": "cross-env NODE_ENV=vercel node vercel.js --vercel",
+    "start:live": "cross-env NODE_ENV=live node server.js --live",
     "test": "jest --coverage",
     "git:cache:clear": "git rm -r --cached . && git add . && git commit -am 'git cache cleared' && git push",
     "precommit": "lint-staged",

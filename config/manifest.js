@@ -6,11 +6,11 @@ const getArgument = (argument) => {
   return process.argv.indexOf(argument);
 };
 
-if (getArgument('--vercel') !== -1) {
-  process.env.NODE_ENV = 'vercel';
+if (getArgument('--live') !== -1) {
+  process.env.NODE_ENV = 'live';
 }
 
-if (getArgument('--vercel') !== -1) {
+if (getArgument('--live') !== -1) {
   process.env.NODE_CONFIG_DIR = `${__dirname}`;
 }
 
