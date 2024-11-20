@@ -17,7 +17,7 @@ module.exports = {
     LLS_ADMIN_URL: 'https://smb.goprisma-lab.com',
   },
   constants: {
-    API_BASEPATH: 'localhost:2222',
+    API_BASEPATH: 'alleged-loria-sahilpatel-e961e0fd.koyeb.app',
     S3_PREFIX: '',
     LLS_S3_PREFIX: 'LLS/',
     S3_BASE_PATH: 'https://prisma-assets-dev.s3.amazonaws.com/',

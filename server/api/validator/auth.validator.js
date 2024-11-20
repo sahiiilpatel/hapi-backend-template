@@ -8,6 +8,16 @@ const login = {
     })
 }
 
+const register = {
+    payload: Joi.object().keys({
+        firstName: Joi.string().required().trim().label('firstName'),
+        lastName: Joi.string().required().trim().label('lastName'),
+        email: Joi.string().required().trim().custom(value => `${value.toLowerCase()}`, 'toLowerCase').label('email'),
+        password: Joi.string().required().trim().label('Password'),
+    })
+}
+
 module.exports = {
-    login
+    login,
+    register
 }

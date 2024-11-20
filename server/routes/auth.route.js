@@ -25,10 +25,10 @@ module.exports = {
           }
         },
         {
-          method: 'GET',
-          path: '/sahil',
+          method: 'POST',
+          path: '/register',
           config: {
-            auth: 'auth',
+            auth: null,
             plugins: {
               policies: ['log.policy'],
               'hapi-swaggered': {
@@ -36,11 +36,11 @@ module.exports = {
               }
             },
             tags: ['api', 'Authentication'],
-            description: 'get info',
-            notes: 'get info',
-            validate: API.getInfo.validate,
-            pre: API.getInfo.pre,
-            handler: API.getInfo.handler
+            description: 'login',
+            notes: 'login',
+            validate: API.register.validate,
+            pre: API.register.pre,
+            handler: API.register.handler
           }
         },
       ])

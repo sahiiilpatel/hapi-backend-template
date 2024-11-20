@@ -61,14 +61,16 @@ module.exports = {
       return h.response(response).code(200)
     }
   },
-  getInfo: {
-    validate: {},
+  register: {
+    validate: authValidator.register,
     pre: [],
     handler: async (request, h) => {
-      let response = {
-        success: true,
+      try {
+        const { authService } = request.server.services();
+        return await authService.register(request)
+      } catch (err) {
+        errorHelper.handleError(err)
       }
-      return h.response(response).code(200)
     }
-  }
+  },
 }

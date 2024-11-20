@@ -11,7 +11,7 @@ module.exports = {
     ADMIN_API_URL: "http://localhost:2202",
   },
   constants: {
-    API_BASEPATH: 'localhost:2222',  // Adjust for live deployment if needed
+    API_BASEPATH: 'alleged-loria-sahilpatel-e961e0fd.koyeb.app',  // Adjust for live deployment if needed
     CHROMIUM_PATH: {},
     EXPIRATION_PERIOD: '730h',
     JWT_SECRET: process.env.JWT_SECRET || 'jwtsecret',
