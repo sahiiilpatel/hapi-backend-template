@@ -6,12 +6,10 @@ const getArgument = (argument) => {
   return process.argv.indexOf(argument);
 };
 
+// Set NODE_ENV and NODE_CONFIG_DIR based on the '--live' flag
 if (getArgument('--live') !== -1) {
   process.env.NODE_ENV = 'live';
-}
-
-if (getArgument('--live') !== -1) {
-  process.env.NODE_CONFIG_DIR = `${__dirname}`;
+  process.env.NODE_CONFIG_DIR = `${__dirname}`; // Set config directory for live environment
 }
 
 const config = require('config');
@@ -52,6 +50,7 @@ if (ENV !== DEFAULT) {
   swaggerOptions.host = Config.constants.API_BASEPATH;
   mongoose.set('debug', true);
 }
+
 if (ENV !== PRODUCTION) {
   plugins = [
     {
@@ -70,6 +69,7 @@ if (ENV !== PRODUCTION) {
     },
   ];
 }
+
 plugins = plugins.concat([
   {
     plugin: '@hapi/inert',
@@ -88,7 +88,7 @@ plugins = plugins.concat([
     options: {
       policyDirectory: `${__dirname}/../server/policies`,
       defaultApplyPoint:
-        'onPreHandler' /* optional.  Defaults to onPreHandler */,
+        'onPreHandler', // optional. Defaults to onPreHandler
     },
   },
   {
@@ -111,7 +111,7 @@ plugins = plugins.concat([
 
 const routesOb = {
   'auth.route': 'auth',
-}
+};
 const routes = Object.keys(routesOb);
 
 routes.forEach((r) => {
@@ -155,7 +155,7 @@ exports.manifest = {
       auth: false,
     },
     debug: Config.debug,
-    port: Config.port,
+    port: process.env.PORT || 8000,
   },
   register: {
     plugins,

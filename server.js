@@ -3,7 +3,7 @@
 require('module-alias/register')
 
 if (process.env.NODE_ENV === 'default') {
-  require('dotenv').config({ path: './../.env' });
+  require('dotenv').config({ path: './.env' });
 } else {
   require('dotenv').config()
 }
@@ -23,6 +23,10 @@ const startServer = async () => {
       serverConfig.manifest,
       options
     )
+
+    console.log('NODE_ENV:', process.env.NODE_ENV);
+    console.log('NODE_CONFIG_DIR:', process.env.NODE_CONFIG_DIR);
+    console.log('DB Connection String:', process.env.DB);
 
     server.events.on('response', async function (request) {
     });
