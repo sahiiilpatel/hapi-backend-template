@@ -97,9 +97,6 @@ plugins = plugins.concat([
     },
   },
   {
-    plugin: '@plugins/auth.plugin',
-  },
-  {
     plugin: '@routes/root.route',
   }
 ]);
@@ -108,9 +105,7 @@ const isDefault = ENV === DEFAULT;
 plugins = plugins.concat([
 ]);
 
-const routesOb = {
-  'auth.route': 'auth',
-};
+const routesOb = {};
 const routes = Object.keys(routesOb);
 
 routes.forEach((r) => {

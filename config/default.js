@@ -1,6 +1,5 @@
 module.exports = {
   appName: 'trogoninfotech-backend',
-  port: 2222,
   debug: {
     request: ['error', 'info'],
     log: ['info', 'error', 'warning']

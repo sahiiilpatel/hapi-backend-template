@@ -1,7 +1,5 @@
 'use strict'
 
-const config = require('config')
-
 const errors = {
     general: {
         defaultSettingNotFound: {
