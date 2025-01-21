@@ -6,10 +6,9 @@ const getArgument = (argument) => {
   return process.argv.indexOf(argument);
 };
 
-// Set NODE_ENV and NODE_CONFIG_DIR based on the '--live' flag
-if (getArgument('--live') !== -1) {
-  process.env.NODE_ENV = 'live';
-  process.env.NODE_CONFIG_DIR = `${__dirname}`; // Set config directory for live environment
+if (getArgument('--production') !== -1) {
+  process.env.NODE_ENV = 'production';
+  process.env.NODE_CONFIG_DIR = `${__dirname}`;
 }
 
 const config = require('config');
@@ -155,6 +154,7 @@ exports.manifest = {
       auth: false,
     },
     debug: Config.debug,
+    host: process.env.SERVER_IP || '0.0.0.0',
     port: process.env.PORT || 8000,
   },
   register: {

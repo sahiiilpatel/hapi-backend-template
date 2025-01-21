@@ -4,9 +4,9 @@
   "description": "management api v1",
   "main": "server.js",
   "scripts": {
-    "start": "npm run start:live",
+    "start": "npm run start:local",
     "start:local": "cross-env NODE_ENV=default nodemon server.js",
-    "start:live": "cross-env NODE_ENV=live node server.js --live",
+    "start:production": "cross-env NODE_ENV=production node server.js --production",
     "test": "jest --coverage",
     "git:cache:clear": "git rm -r --cached . && git add . && git commit -am 'git cache cleared' && git push",
     "precommit": "lint-staged",

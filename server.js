@@ -1,12 +1,7 @@
 'use strict'
 
 require('module-alias/register')
-
-if (process.env.NODE_ENV === 'default') {
-  require('dotenv').config({ path: './.env' });
-} else {
-  require('dotenv').config()
-}
+require('dotenv').config()
 
 const Glue = require('@hapi/glue')
 const Glob = require('glob')
@@ -23,11 +18,6 @@ const startServer = async () => {
       serverConfig.manifest,
       options
     )
-
-    console.log('NODE_ENV:', process.env.NODE_ENV);
-    console.log('NODE_CONFIG_DIR:', process.env.NODE_CONFIG_DIR);
-    console.log('DB Connection String:', process.env.DB);
-
     server.events.on('response', async function (request) {
     });
 
