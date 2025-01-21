@@ -17,9 +17,9 @@ const Config = JSON.parse(JSON.stringify(config));
 
 const swaggerOptions = {
   info: {
-    title: 'pg-management-api-v1',
+    title: 'trogoninfotech-api-v1',
     version: require('../package.json').version,
-    description: 'pg-management-api-v1',
+    description: 'trogoninfotech-api-v1',
   },
   documentationPath: '/docs',
   basePath: '/api',
@@ -87,7 +87,7 @@ plugins = plugins.concat([
     options: {
       policyDirectory: `${__dirname}/../server/policies`,
       defaultApplyPoint:
-        'onPreHandler', // optional. Defaults to onPreHandler
+        'onPreHandler',
     },
   },
   {

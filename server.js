@@ -5,21 +5,11 @@ require('dotenv').config()
 
 const Glue = require('@hapi/glue')
 const Glob = require('glob')
-const serverConfig = require('./config/manifest')
-
-const options = {
-  ...serverConfig.options,
-  relativeTo: __dirname
-}
+const { manifest } = require('./config/manifest')
 
 const startServer = async () => {
   try {
-    const server = await Glue.compose(
-      serverConfig.manifest,
-      options
-    )
-    server.events.on('response', async function (request) {
-    });
+    const server = await Glue.compose(manifest, { relativeTo: __dirname })
 
     const services = Glob.sync('server/services/*.js')
     services.forEach(service => {
