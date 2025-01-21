@@ -101,10 +101,6 @@ plugins = plugins.concat([
   }
 ]);
 
-const isDefault = ENV === DEFAULT;
-plugins = plugins.concat([
-]);
-
 const routesOb = {};
 const routes = Object.keys(routesOb);
 
@@ -149,6 +145,7 @@ exports.manifest = {
       auth: false,
     },
     debug: Config.debug,
+    host: '0.0.0.0',
     port: process.env.PORT || 8000,
   },
   register: {
