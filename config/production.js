@@ -5,7 +5,7 @@ module.exports = {
     log: ['info', 'error', 'warning']
   },
   constants: {
-    API_BASEPATH: 'api.trogoninfotech.com',
+    API_BASEPATH: 'api-trogoninfotech.ap-south-1.elasticbeanstalk.com',
     EXPIRATION_PERIOD: '730h',
     JWT_SECRET: process.env.JWT_SECRET || 'jwtsecret'
   },

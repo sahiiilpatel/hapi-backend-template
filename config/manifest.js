@@ -50,24 +50,24 @@ if (ENV !== DEFAULT) {
   mongoose.set('debug', true);
 }
 
-if (ENV !== PRODUCTION) {
-  plugins = [
-    {
-      plugin: '@hapi/vision',
+// if (ENV !== PRODUCTION) {
+plugins = [
+  {
+    plugin: '@hapi/vision',
+  },
+  {
+    plugin: 'hapi-swagger',
+    options: swaggerOptions,
+  },
+  {
+    plugin: 'hapi-dev-errors',
+    options: {
+      showErrors: process.env.NODE_ENV !== 'production',
+      toTerminal: true,
     },
-    {
-      plugin: 'hapi-swagger',
-      options: swaggerOptions,
-    },
-    {
-      plugin: 'hapi-dev-errors',
-      options: {
-        showErrors: process.env.NODE_ENV !== 'production',
-        toTerminal: true,
-      },
-    },
-  ];
-}
+  },
+];
+// }
 
 plugins = plugins.concat([
   {

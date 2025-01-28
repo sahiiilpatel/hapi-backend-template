@@ -9,7 +9,6 @@ const { manifest } = require('./config/manifest')
 
 const startServer = async () => {
   try {
-    console.log('manifest: sadasdas', manifest);
     const server = await Glue.compose(manifest, { relativeTo: __dirname })
 
     const services = Glob.sync('server/services/*.js')
