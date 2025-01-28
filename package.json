@@ -2,11 +2,11 @@
   "name": "trogoninfotech-api-v1",
   "version": "0.0.1",
   "description": "trogoninfotech api v1",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "npm run start:local",
-    "start:local": "cross-env NODE_ENV=default nodemon server.js",
-    "start:production": "cross-env NODE_ENV=production node server.js --production"
+    "start": "npm run start:production",
+    "start:local": "cross-env NODE_ENV=default nodemon app.js",
+    "start:production": "cross-env NODE_ENV=production node app.js --production"
   },
   "lint-staged": {
     "**/*.js": [
