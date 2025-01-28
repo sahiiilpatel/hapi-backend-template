@@ -7,4 +7,3 @@ spec:
       type: REST
       networkVisibility: Public
       context: /trogoninfotech
-      schemaFilePath: openapi.yaml
