@@ -4,7 +4,7 @@
   "description": "trogoninfotech api v1",
   "main": "app.js",
   "scripts": {
-    "start": "npm run start:production",
+    "start": "npm run start:local",
     "start:local": "cross-env NODE_ENV=default nodemon app.js",
     "start:production": "cross-env NODE_ENV=production node app.js --production"
   },
@@ -31,9 +31,10 @@
     "bluebird": "^3.7.2",
     "config": "^3.3.9",
     "cross-env": "^7.0.3",
+    "crypto": "^1.0.1",
     "dotenv": "^16.3.1",
     "glob": "^10.3.10",
-    "hapi-auth-jwt2": "^10.5.0",
+    "hapi-auth-jwt2": "^10.7.0",
     "hapi-dev-errors": "^4.0.0",
     "hapi-swagger": "^17.2.0",
     "joi": "^17.13.3",
@@ -43,7 +44,8 @@
     "moment-timezone": "^0.5.46",
     "mongoose": "^8.9.5",
     "mrhorse": "^7.0.2",
-    "uuid": "^11.0.3"
+    "razorpay": "^2.9.5",
+    "uuid": "^11.0.5"
   },
   "_moduleAliases": {
     "@root": ".",

@@ -1,7 +1,5 @@
 'use strict';
 
-const PRODUCTION = 'production';
-
 const getArgument = (argument) => {
   return process.argv.indexOf(argument);
 };
@@ -50,7 +48,6 @@ if (ENV !== DEFAULT) {
   mongoose.set('debug', true);
 }
 
-// if (ENV !== PRODUCTION) {
 plugins = [
   {
     plugin: '@hapi/vision',
@@ -65,9 +62,8 @@ plugins = [
       showErrors: process.env.NODE_ENV !== 'production',
       toTerminal: true,
     },
-  },
+  }
 ];
-// }
 
 plugins = plugins.concat([
   {
@@ -97,11 +93,21 @@ plugins = plugins.concat([
     },
   },
   {
+    plugin: '@plugins/auth.plugin',
+  },
+  {
     plugin: '@routes/root.route',
   }
 ]);
 
-const routesOb = {};
+const routesOb = {
+  'auth.route': 'auth',
+  'subscription-plan.route': 'subscription-plan',
+  'payment.route': 'payment',
+  'dashboard.route': 'dashboard',
+  'pg.route': 'pg',
+};
+
 const routes = Object.keys(routesOb);
 
 routes.forEach((r) => {
@@ -111,9 +117,9 @@ routes.forEach((r) => {
       routes: {
         prefix: `/api/v1${routesOb[r] ? `/${routesOb[r]}` : ``}`,
       },
-    },
-  ]);
-});
+    }
+  ])
+})
 
 exports.manifest = {
   server: {

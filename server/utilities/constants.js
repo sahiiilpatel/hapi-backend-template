@@ -32,7 +32,7 @@ const errors = {
         invalidCredentials: {
             status: 401,
             code: 'invalid_credentials',
-            message: 'invalide credentials'
+            message: 'invalid credentials'
         }
     },
 

@@ -10,7 +10,6 @@ exports.plugin = {
     try {
       db.plugin(this.addPaginationPlugin)
       dbConn = await db.createConnection(options.connections.db)
-      // db.set('debug', true);
 
       dbConn.on('connected', () => {
         server.log(['mongoose', 'info', 'ignore'], 'dbConn Mongo Database connected')
@@ -93,9 +92,3 @@ exports.plugin = {
   name: 'mongoose_connector',
   version: require('../../package.json').version
 }
-
-
-
-
-
-
