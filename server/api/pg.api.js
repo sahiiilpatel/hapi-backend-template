@@ -62,5 +62,24 @@ module.exports = {
         handler: async (request, h) => {
             return h.response(request.pre.deletePg);
         }
-    }
+    },
+    getPgNameList: {
+        validate: {},
+        pre: [
+            {
+                assign: 'getPgNameList',
+                method: async (request, h) => {
+                    try {
+                        const { pgService } = request.server.services();
+                        return await pgService.getPgNameList(request);
+                    } catch (err) {
+                        errorHelper.handleError(err);
+                    }
+                }
+            }
+        ],
+        handler: async (request, h) => {
+            return h.response(request.pre.getPgNameList);
+        }
+    },
 }

@@ -52,6 +52,22 @@ module.exports = {
                         pre: API.deletePg.pre,
                         handler: API.deletePg.handler
                     },
+                },
+                {
+                    method: 'GET',
+                    path: '/name-list',
+                    config: {
+                        auth: 'auth',
+                        plugins: {
+                            policies: ['log.policy'],
+                        },
+                        tags: ['api', 'PG'],
+                        description: 'get all pg name list',
+                        notes: 'get all pg name list',
+                        validate: API.getPgNameList.validate,
+                        pre: API.getPgNameList.pre,
+                        handler: API.getPgNameList.handler
+                    },
                 }
             ])
         },

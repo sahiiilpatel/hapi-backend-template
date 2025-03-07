@@ -83,6 +83,23 @@ module.exports = class PgService extends Schmervice.Service {
     }
   }
 
+  async getPgNameList(request) {
+    try {
+      const { auth: { credentials: { user } } } = request;
+
+      const role = ["superadmin", "pgowner"];
+      if (!role.includes(user.role)) errorHelper.handleError(Boom.badRequest("Access denied"))
+
+      let Obj = { deleted: { $ne: true } }
+      const pgNameList = await PgModel.find(Obj, { pgName: 1 }).lean();
+      if (!pgNameList) errorHelper.handleError(Boom.badRequest("Pg Name List not found"))
+
+      return { success: true, data: pgNameList }
+    } catch (err) {
+      errorHelper.handleError(err);
+    }
+  }
+
   async addNewPg(request) {
     try {
       const { payload, auth: { credentials: { user } } } = request;

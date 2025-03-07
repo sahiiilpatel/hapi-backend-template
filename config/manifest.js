@@ -106,6 +106,9 @@ const routesOb = {
   'payment.route': 'payment',
   'dashboard.route': 'dashboard',
   'pg.route': 'pg',
+  'room.route': 'room',
+  'hire-developer.route': 'hire-developer',
+  'project-inquiry.route': 'project-inquiry'
 };
 
 const routes = Object.keys(routesOb);
